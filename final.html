@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Selamat Ulang Tahun 🎉</title>
+  <style>
+    /* Background gradasi animasi */
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #a8edea, #d0f4f7, #90e0ef, #caf0f8);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Judul glowing */
+    h1 {
+      font-size: 55px;
+      color: #0077b6;
+      text-shadow: 0 0 10px #00b4d8, 0 0 20px #90e0ef, 0 0 40px #48cae4;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00b4d8; }
+      to { text-shadow: 0 0 25px #90e0ef, 0 0 50px #48cae4; }
+    }
+
+    p {
+      font-size: 20px;
+      color: #023e8a;
+      margin-bottom: 30px;
+    }
+
+    /* Galeri gambar */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      z-index: 10;
+      position: relative;
+    }
+    img {
+      width: 180px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+    img:hover {
+      transform: scale(1.15);
+    }
+
+    /* Tombol */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #0077b6;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: background 0.3s;
+      z-index: 10;
+      position: relative;
+    }
+    .btn:hover {
+      background: #023e8a;
+    }
+
+    /* Konfeti */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      opacity: 0.7;
+      animation: fall linear forwards;
+      z-index: 1;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0.9;
+      }
+    }
+
+    /* Balon */
+    .balloon {
+      position: fixed;
+      bottom: -150px;
+      width: 60px;
+      animation: rise linear forwards;
+      z-index: 1;
+    }
+    @keyframes rise {
+      to {
+        transform: translateY(-120vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 HAPPY BIRTHDAY CANTIK! 🎁</h1>
+  <p>uiss si cantik udah nyentuh angka 18 nih,gak heran sih kalau hasil tahun baru😏 gak apa lah lambat beberapa hari yang penting masih  dibulan yang sama😘 <br> maaf yah gw gak nyedian boneka lagi kayak tahun lalu, kali ini cuman sekumpulan kata doank yang memerlukan hanya sedikit effort😅 jujur aja nih yah waktu hari dimana kamu chat bilang apa yang buat saya suka sama kamu itu sampai sekarang belum bisa jawab karena jawabannya belum saya dapat <br> akhir kata saya hanya mendoakan kamu agar tetap sehat, tetap bisa senyum  sebagaimana mestinya, selalu behati-hati dan waspada terhadap orang lain dan juga selalu dipermuda segala urusan nya 💙✨</p>
+  
+  <div class="gallery">
+    <img src="https://cdn.pixabay.com/photo/2017/08/06/21/35/birthday-2595942_640.jpg" alt="Kue Ulang Tahun">
+    <img src="https://cdn.pixabay.com/photo/2017/09/05/00/07/balloons-2716847_640.jpg" alt="Balon">
+    <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/gift-1294939_640.png" alt="Kado">
+  </div>
+
+  <a class="btn" href="https://www.youtube.com/watch?v=90G3sG8Q0QE" target="_blank">
+    🎶 Putar Lagu Ulang Tahun 🎶
+  </a>
+
+  <script>
+    // Fungsi buat konfeti
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      document.body.appendChild(confetti);
+
+      // Random warna
+      const colors = ["#ff4081", "#ffeb3b", "#00b4d8", "#8e44ad", "#2ecc71"];
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+      // Random posisi & ukuran
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + "px";
+
+      // Random durasi jatuh
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+      // Hapus konfeti
+      setTimeout(() => confetti.remove(), 5000);
+    }
+
+    // Fungsi buat balon
+    function createBalloon() {
+      const balloon = document.createElement("img");
+      balloon.src = "https://cdn.pixabay.com/photo/2012/04/11/16/28/balloon-29112_640.png";
+      balloon.classList.add("balloon");
+      document.body.appendChild(balloon);
+
+      // Random posisi & ukuran
+      balloon.style.left = Math.random() * window.innerWidth + "px";
+      balloon.style.width = Math.random() * 40 + 40 + "px";
+
+      // Random durasi naik
+      balloon.style.animationDuration = (Math.random() * 8 + 5) + "s";
+
+      // Hapus balon setelah keluar layar
+      setTimeout(() => balloon.remove(), 10000);
+    }
+
+    // Jalankan terus-menerus
+    setInterval(createConfetti, 150);
+    setInterval(createBalloon, 1000);
+  </script>
+</body>
+</html>
